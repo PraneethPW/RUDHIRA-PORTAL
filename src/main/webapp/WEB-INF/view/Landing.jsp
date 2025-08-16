@@ -138,7 +138,7 @@
             Enter your city, district, pincode, and blood group in our search tool to find donors instantly.  
             Thousands of heroes are ready to help — your match could be just a click away.
         </p>
-        <form method="get" action="/user/finddonars">
+        <form method="get" action="/save/user/finddonars">
             <button type="submit" class="btn">🔍 Find Donors Now</button>
         </form>
     </div>
@@ -149,7 +149,7 @@
             Join our growing community of blood donors.  
             A few minutes of your time could mean a lifetime for someone in need.
         </p>
-        <form method="get" action="/user/saveddata">
+        <form method="get" action="/save/user/saveddata">
             <button type="submit" class="btn">❤️ Become a Donor</button>
         </form>
     </div>
