@@ -123,7 +123,7 @@
 
     <div class="container">
         <h2>Find a Blood Donor</h2>
-        <form action="/save/user/donarslist" method="post">
+        <form action="/user/donarslist" method="post">
             
             <label for="bloodgroup">Blood Group</label>
             <select id="bloodgroup" name="bloodgroup" required>
