@@ -102,6 +102,13 @@ Share it with fellow Java/Spring learners
 This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
-Praneeth Reddy. J
+
+**Praneeth Reddy**  
+_Biotech Student | Java Backend Developer | Spring Boot | Spring AI Learner_
+
+[![GitHub](https://img.shields.io/badge/GitHub-PraneethPW-black?logo=github)](https://github.com/PraneethPW)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Praneeth%20Reddy-blue?logo=linkedin)](https://www.linkedin.com)
+
+---
 
 
