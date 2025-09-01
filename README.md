@@ -73,7 +73,17 @@ http://localhost:9999/save/user/savedata
 
 ## 💡 📸 Screenshots
 
-(Add screenshots of your form/UI here once hosted 👀)
+<img width="1920" height="1020" alt="Screenshot 2025-09-01 101352" src="https://github.com/user-attachments/assets/3c89eddc-9c35-41a4-8ac1-96b720bc910e" />
+<img width="1920" height="1020" alt="Screenshot 2025-09-01 101432" src="https://github.com/user-attachments/assets/8fcf3b83-9dbe-4a2c-ac95-36e777a1f7e8" />
+<img width="1920" height="1020" alt="Screenshot 2025-09-01 101713" src="https://github.com/user-attachments/assets/4020559c-eaa2-4a8c-b1b8-f3cef1db573b" />
+<img width="1920" height="1020" alt="Screenshot 2025-09-01 101414" src="https://github.com/user-attachments/assets/9fec86b8-e97a-4d38-a275-dc54ca19171d" />
+<img width="1920" height="1020" alt="Screenshot 2025-09-01 103259" src="https://github.com/user-attachments/assets/6804c78d-1a6c-4e4e-8ce2-374a89a4701d" />
+
+
+
+
+
+
 
 
 ## 🤝 Contribution
