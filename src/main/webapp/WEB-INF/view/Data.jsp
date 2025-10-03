@@ -1,4 +1,4 @@
-<%@ page import="java.util.*, in.praneeth.Entity.PersonaDetails" %>
+<%@ page import="java.util.*,in.praneeth.Entity.PersonaDetails" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
