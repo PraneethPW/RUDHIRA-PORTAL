@@ -142,7 +142,7 @@
                 <td><%= p.getContact() %></td>
 
                 <td>
-                    <form action="<%= request.getContextPath() %>/user/display2" method="post">
+                    <form action="/user/display2" method="post">
                         <input type="hidden" name="id" value="<%= p.getId() %>">
                         <button type="submit" class="btn btn-delete"
                                 onclick="return confirm('Are you sure you want to delete this record?');">
