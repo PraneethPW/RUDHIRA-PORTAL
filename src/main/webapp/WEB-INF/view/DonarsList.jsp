@@ -160,7 +160,7 @@
         }
     %>
 
-    <a href="/user/finddonars" class="back-btn">🔍 Search Again</a>
+    <a href="/finddonars" class="back-btn">🔍 Search Again</a>
 </div>
 
 <footer>

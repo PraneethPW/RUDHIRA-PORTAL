@@ -189,7 +189,7 @@
     <p class="quote">"Your blood donation could be the reason someone gets to see tomorrow."</p>
 
     <!-- Auto-generated ID handled in backend; no ID input -->
-    <form id="donorForm" action="<%= request.getContextPath() %>/user/success" method="post">
+    <form id="donorForm" action="<%= request.getContextPath() %>/success" method="post">
 
         <label for="name">Name</label>
         <div class="input-group">

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import in.praneeth.Entity.PersonaDetails;
 import in.praneeth.Service.RudhiraServiceInterface;
 @Controller
-@RequestMapping("/user")
 public class RudhiraController {
 	@Autowired
 	private RudhiraServiceInterface inter;

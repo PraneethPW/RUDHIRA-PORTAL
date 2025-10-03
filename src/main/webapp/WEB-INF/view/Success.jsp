@@ -59,8 +59,8 @@
     <h1>✅ Registration Successful!</h1>
     <p>Thank you for registering as a blood donor.<br>
        Your willingness to donate could help save lives.</p>
-    <a href="<%= request.getContextPath() %>/user/savedata" class="btn">Go to Home</a>
-    <a href="<%= request.getContextPath() %>/user/clientdata" class="btn ">Here are the details of Donars</a>
+    <a href="<%= request.getContextPath() %>/savedata" class="btn">Go to Home</a>
+    <a href="<%= request.getContextPath() %>/clientdata" class="btn ">Here are the details of Donars</a>
    
 </div>
 </form>
