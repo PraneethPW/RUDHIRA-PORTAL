@@ -24,7 +24,7 @@ public class RudhiraController {
 		System.out.println("CONTROLLER PAGE IS READY");
 	}
 	
-	@GetMapping("/savedata")
+	@GetMapping("/")
 	public String SaveData(@ModelAttribute PersonaDetails details,Model model) {
 		model.addAttribute("details", new PersonaDetails());
 		return "Landing";
