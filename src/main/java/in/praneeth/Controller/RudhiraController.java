@@ -33,20 +33,19 @@ public class RudhiraController {
 		model.addAttribute("details", new PersonaDetails());
 		return "Register";
 	}
-	@PostMapping("/display")
-	public String DisplayData(@ModelAttribute PersonaDetails details,Model model) {
-		inter.save(details);
-		System.out.println(details);
+	@PostMapping("/donarslist")
+	public String FindDonars(Model model,@RequestParam String bloodgroup,@RequestParam String city,@RequestParam String district,@RequestParam Long pincode ,@ModelAttribute PersonaDetails details) {
+	    model.addAttribute("details",inter.FindByDetails(bloodgroup, city, district, pincode));
+	    return "DonarsList";
+	}
+   
+	@PostMapping("/clientdata")
+	public String DonarDetailsAll(Model model ,@ModelAttribute PersonaDetails details) {
 		model.addAttribute("details", inter.findAll());
-		
-		return "Data";
+		return  "DonarDetailsAll";
 	}
-	@PostMapping("/display2")
-	public String DeleteData(Model model,@ModelAttribute PersonaDetails details) {
-		   inter.DeleteObject(details);
-		model.addAttribute("details",inter.findAll());
-		return "Data";
-	}
+
+	
 	
 	//****************************************************************************************************************************************//
 	
@@ -59,12 +58,7 @@ public class RudhiraController {
 	}
 	//****************************************************************************************************************************************//
 	
-	//THIS IS FOR THE CLIENT//
-	@GetMapping("/clientdata")
-	public String getData(@ModelAttribute PersonaDetails details ,Model model) {
-		model.addAttribute("details", inter.findAll());
-		return "getData";
-	}
+
 	
 	//****************************************************************************************************************************************//
 	//THIS IS TO FIND THE DONARS//
@@ -73,11 +67,7 @@ public class RudhiraController {
 		model.addAttribute("details", new PersonaDetails());
 		return "FindDonars";
 	}
-	@PostMapping("/donarslist")
-	public String FindDonars(Model model,@RequestParam String bloodgroup,@RequestParam String city,@RequestParam String district,@RequestParam Long pincode ,@ModelAttribute PersonaDetails details) {
-	model.addAttribute("details",inter.FindByDetails(bloodgroup, city, district, pincode));
-		return "DonarsList";
-	}
+	
 	
 	
 	

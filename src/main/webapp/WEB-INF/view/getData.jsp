@@ -9,7 +9,7 @@
         body {
             font-family: 'Segoe UI', sans-serif;
             background: linear-gradient(to bottom, #fff5f5, #ffe5e5);
-            margin: 0;
+            margin: 0; 
             padding: 0;
         }
         .header {
@@ -76,6 +76,15 @@
             font-size: 14px;
             color: #888;
         }
+        .masked-phone {
+            color: #d32f2f;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .masked-phone:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -105,6 +114,9 @@
             List<PersonaDetails> detailsList = (List<PersonaDetails>) request.getAttribute("details");
             if (detailsList != null && !detailsList.isEmpty()) {
                 for (PersonaDetails p : detailsList) {
+                    // Convert contact (Long) to String for masking
+                    String phone = String.valueOf(p.getContact());
+                    String masked = "******" + phone.substring(phone.length() - 4);
         %>
             <tr>
                 <td><%= p.getId() %></td>
@@ -113,7 +125,9 @@
                 <td><%= p.getBloodgroup() %></td>
                 <td><%= p.getSex() %></td>
                 <td><%= p.getCity() %></td>
-                <td><%= p.getContact() %></td>
+                <td>
+                    <a href="tel:<%= phone %>" class="masked-phone"><%= masked %></a>
+                </td>
                 <td><%= p.getDistrict() %></td>
                 <td><%= p.getPincode() %></td>
             </tr>

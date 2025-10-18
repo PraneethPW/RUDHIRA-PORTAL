@@ -19,10 +19,7 @@ public class RudhiraServiceClass implements RudhiraServiceInterface {
 		
 	}
 
-	@Override
-	public List<PersonaDetails> findAll() {
-		return (List<PersonaDetails>) repo.findAll();
-	}
+	
 
 	
 	@Override
@@ -43,17 +40,24 @@ public class RudhiraServiceClass implements RudhiraServiceInterface {
 		
 	}
 
-	@Override
-	public List<PersonaDetails> FindByDetails(String bloodgroup, String city, String district, Long pincode) {
-		return (List<PersonaDetails>) repo.findAll();
-	}
+	
 
 	@Override
-	public Optional<PersonaDetails> findById(Integer id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+	public List<PersonaDetails> FindByDetails(String bloodgroup, String city, String district, Long pincode) {
+	    return repo.findByBloodgroupAndCityAndDistrictAndPincode(bloodgroup, city, district, pincode);
 	}
-		
+
+
+
+
+	@Override
+	public List<PersonaDetails> findAll() {
+	return (List<PersonaDetails>) repo.findAll();
+	}
+
+
+
+	
 
 	
 	

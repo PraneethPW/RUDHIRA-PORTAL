@@ -1,171 +1,152 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.*,in.praneeth.Entity.PersonaDetails" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Donor Search Results</title>
+    <title>Blood Donor Records</title>
     <style>
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #fff5f5, #ffe5e5);
+            margin: 0; 
             padding: 0;
-            background: linear-gradient(135deg, rgba(255,75,43,0.9), rgba(255,65,108,0.9)),
-                        url('https://images.unsplash.com/photo-1580281657521-3bdf6401f1c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center/cover;
-            color: #333;
         }
-
-        header {
-            background-color: rgba(255,75,43,0.95);
-            padding: 15px;
-            text-align: center;
+        .header {
+            background: #d32f2f;
             color: white;
-            font-size: 24px;
+            text-align: center;
+            padding: 20px;
+            font-size: 28px;
             font-weight: bold;
             letter-spacing: 1px;
+            position: relative;
         }
-
+        .header::before {
+            content: "💉";
+            font-size: 36px;
+            margin-right: 10px;
+        }
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            width: 90%;
             margin: 30px auto;
+            background: #fff;
             padding: 20px;
             border-radius: 12px;
-            width: 90%;
-            max-width: 1100px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        h1 {
+        h2 {
             text-align: center;
-            color: #ff4b2b;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            color: #b71c1c;
         }
-
+        p.tagline {
+            text-align: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            overflow: hidden;
+            border-radius: 10px;
         }
-
         th, td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-
-        th {
-            background: #ff4b2b;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        tr:nth-child(even) {
-            background: #f9f9f9;
-        }
-
-        tr:hover {
-            background: #ffe5e0;
-        }
-
-        .no-data {
+            border: 1px solid #f0f0f0;
+            padding: 10px 12px;
             text-align: center;
-            padding: 20px;
-            color: #c0392b;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin: 20px auto;
-            background: #28a745;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
-            display: block;
-            text-align: center;
-            width: fit-content;
-        }
-
-        .back-btn:hover {
-            background: #218838;
-        }
-
-        footer {
-            background: rgba(0,0,0,0.8);
-            color: #ccc;
-            text-align: center;
-            padding: 10px;
-            margin-top: 30px;
             font-size: 14px;
         }
-
-        @media (max-width: 768px) {
-            th, td {
-                padding: 10px;
-                font-size: 14px;
-            }
-            h1 {
-                font-size: 20px;
-            }
+        th {
+            background: #d32f2f;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #fff5f5;
+        }
+        tr:hover {
+            background: #ffe5e5;
+            transition: 0.3s;
+        }
+        .footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+        }
+        .masked-phone {
+            color: #d32f2f;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .masked-phone:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
-<header>🩸 Blood Donor Search Portal</header>
-
-<div class="container">
-    <h1>Search Results</h1>
-
-    <%
-        List<PersonaDetails> donorList = (List<PersonaDetails>) request.getAttribute("details");
-        if (donorList != null && !donorList.isEmpty()) {
-    %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Blood Group</th>
-                    <th>City</th>
-                    <th>District</th>
-                    <th>Pincode</th>
-                    <th>Contact</th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    for (PersonaDetails donor : donorList) {
-                %>
-                    <tr>
-                        <td><%= donor.getName() %></td>
-                        <td><%= donor.getBloodgroup() %></td>
-                        <td><%= donor.getCity() %></td>
-                        <td><%= donor.getDistrict() %></td>
-                        <td><%= donor.getPincode() %></td>
-                        <td><a href="tel:<%= donor.getContact() %>" style="color:#ff4b2b; font-weight:bold;"><%= donor.getContact() %></a></td>
-                    </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-    <%
-        } else {
-    %>
-        <div class="no-data">⚠ No donors found for the selected criteria.</div>
-    <%
-        }
-    %>
-
-    <a href="/finddonars" class="back-btn">🔍 Search Again</a>
+<div class="header">
+    Blood Donation Records
 </div>
 
-<footer>
-    &copy; <%= java.time.Year.now() %> Blood Donation Service | Saving Lives Together ❤️
-</footer>
+<div class="container">
+    <h2>Registered Donors</h2>
+    <p class="tagline">"A drop of blood can save a life. Thank you for being a hero!"</p>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Blood Group</th>
+            <th>Sex</th>
+            <th>City</th>
+            <th>Contact</th>
+            <th>District</th>
+            <th>Pincode</th>
+        </tr>
+
+        <%
+            List<PersonaDetails> detailsList = (List<PersonaDetails>) request.getAttribute("details");
+            if (detailsList != null && !detailsList.isEmpty()) {
+                for (PersonaDetails p : detailsList) {
+                    // Convert contact (Long) to String for masking
+                    String phone = String.valueOf(p.getContact());
+                    String masked = "******" + phone.substring(phone.length() - 4);
+        %>
+            <tr>
+                <td><%= p.getId() %></td>
+                <td><%= p.getName() %></td>
+                <td><%= p.getAge() %></td>
+                <td><%= p.getBloodgroup() %></td>
+                <td><%= p.getSex() %></td>
+                <td><%= p.getCity() %></td>
+                <td>
+                    <a href="tel:<%= phone %>" class="masked-phone"><%= masked %></a>
+                </td>
+                <td><%= p.getDistrict() %></td>
+                <td><%= p.getPincode() %></td>
+            </tr>
+        <%
+                }
+            } else {
+        %>
+            <tr>
+                <td colspan="9" style="text-align:center; color:#888;">No donor records found</td>
+            </tr>
+        <%
+            }
+        %>
+    </table>
+
+    <div class="footer">
+        ❤️ Your donation is priceless. Keep saving lives!
+    </div>
+</div>
 
 </body>
 </html>

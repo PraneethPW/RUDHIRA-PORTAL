@@ -60,7 +60,7 @@
     <p>Thank you for registering as a blood donor.<br>
        Your willingness to donate could help save lives.</p>
     <a href="<%= request.getContextPath() %>/saveddata" class="btn">Go to Home</a>
-    <a href="<%= request.getContextPath() %>/clientdata" class="btn ">Here are the details of Donars</a>
+    
    
 </div>
 </form>

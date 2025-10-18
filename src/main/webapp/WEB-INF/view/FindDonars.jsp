@@ -148,7 +148,7 @@
             <input type="number" id="pincode" name="pincode" placeholder="Enter pincode" required>
 
             <button type="submit">Search Donors</button>
-            <div class="note">Your search could help save a life ❤️</div>
+            <div class="note">Your search could help save a life </div>
         </form>
     </div>
 
