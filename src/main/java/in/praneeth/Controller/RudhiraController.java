@@ -26,23 +26,23 @@ public class RudhiraController {
 	@GetMapping("/")
 	public String SaveData(@ModelAttribute PersonaDetails details,Model model) {
 		model.addAttribute("details", new PersonaDetails());
-		return "Landing.jsp";
+		return "Landing";
 	}
 	@GetMapping("/saveddata")
 	public String SaveData1(@ModelAttribute PersonaDetails details,Model model) {
 		model.addAttribute("details", new PersonaDetails());
-		return "Register.jsp";
+		return "Register";
 	}
 	@PostMapping("/donarslist")
 	public String FindDonars(Model model,@RequestParam String bloodgroup,@RequestParam String city,@RequestParam String district,@RequestParam Long pincode ,@ModelAttribute PersonaDetails details) {
 	    model.addAttribute("details",inter.FindByDetails(bloodgroup, city, district, pincode));
-	    return "DonarsList.jsp";
+	    return "DonarsList";
 	}
    
 	@PostMapping("/clientdata")
 	public String DonarDetailsAll(Model model ,@ModelAttribute PersonaDetails details) {
 		model.addAttribute("details", inter.findAll());
-		return  "DonarDetailsAll.jsp";
+		return  "DonarDetailsAll";
 	}
 
 	
@@ -54,7 +54,7 @@ public class RudhiraController {
 	@PostMapping("/success")
 	public String SuccessPage(@ModelAttribute PersonaDetails details, Model model) {
 		inter.save(details);
-		return "Success.jsp";
+		return "Success";
 	}
 	//****************************************************************************************************************************************//
 	
@@ -65,7 +65,7 @@ public class RudhiraController {
 	@GetMapping("/finddonars")
 	public String FindDonarsPage(@ModelAttribute PersonaDetails details,Model model) {
 		model.addAttribute("details", new PersonaDetails());
-		return "FindDonars.jsp";
+		return "FindDonars";
 	}
 	
 	
