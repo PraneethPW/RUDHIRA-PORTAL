@@ -15,70 +15,66 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import in.praneeth.Entity.PersonaDetails;
 import in.praneeth.Service.RudhiraServiceInterface;
+
+	
+
 @Controller
 public class RudhiraController {
-	@Autowired
-	private RudhiraServiceInterface inter;
-	
-	static {
-		System.out.println("CONTROLLER PAGE IS READY");
-	}
-	@GetMapping("/")
-	@ResponseBody
-	public String rootTest() {
-	    return "Root handler hit";
-	}
 
+    @Autowired
+    private RudhiraServiceInterface inter;
 
-	
-//	@GetMapping("/")
-//	public String SaveData(@ModelAttribute PersonaDetails details,Model model) {
-//		model.addAttribute("details", new PersonaDetails());
-//		return "Landing";
-//	}
-	@GetMapping("/saveddata")
-	public String SaveData1(@ModelAttribute PersonaDetails details,Model model) {
-		model.addAttribute("details", new PersonaDetails());
-		return "Register";
-	}
-	@PostMapping("/donarslist")
-	public String FindDonars(Model model,@RequestParam String bloodgroup,@RequestParam String city,@RequestParam String district,@RequestParam Long pincode ,@ModelAttribute PersonaDetails details) {
-	    model.addAttribute("details",inter.FindByDetails(bloodgroup, city, district, pincode));
-	    return "DonarsList";
-	}
-   
-	@PostMapping("/clientdata")
-	public String DonarDetailsAll(Model model ,@ModelAttribute PersonaDetails details) {
-		model.addAttribute("details", inter.findAll());
-		return  "DonarDetailsAll";
-	}
+    static {
+        System.out.println("CONTROLLER PAGE IS READY");
+    }
 
-	
-	
-	//****************************************************************************************************************************************//
-	
-	//THIS IS FOR THE END-USER//
-	//NEED TO REMOVE IN THE EXECUTION PART//
-	@PostMapping("/success")
-	public String SuccessPage(@ModelAttribute PersonaDetails details, Model model) {
-		inter.save(details);
-		return "Success";
-	}
-	//****************************************************************************************************************************************//
-	
+    @GetMapping("/")
+    public String landing(@ModelAttribute PersonaDetails details, Model model) {
+        model.addAttribute("details", new PersonaDetails());
+        return "Landing";   // /WEB-INF/view/Landing.jsp
+    }
 
-	
-	//****************************************************************************************************************************************//
-	//THIS IS TO FIND THE DONARS//
-	@GetMapping("/finddonars")
-	public String FindDonarsPage(@ModelAttribute PersonaDetails details,Model model) {
-		model.addAttribute("details", new PersonaDetails());
-		return "FindDonars";
-	}
-	
-	
-	
-	
-	
+    @GetMapping("/saveddata")
+    public String saveData(@ModelAttribute PersonaDetails details, Model model) {
+        model.addAttribute("details", new PersonaDetails());
+        return "Register";
+    }
 
+    @PostMapping("/donarslist")
+    public String findDonars(
+            Model model,
+            @RequestParam String bloodgroup,
+            @RequestParam String city,
+            @RequestParam String district,
+            @RequestParam Long pincode,
+            @ModelAttribute PersonaDetails details
+    ) {
+        model.addAttribute("details", inter.FindByDetails(bloodgroup, city, district, pincode));
+        return "DonarsList";
+    }
+
+    @PostMapping("/clientdata")
+    public String donarDetailsAll(Model model, @ModelAttribute PersonaDetails details) {
+        model.addAttribute("details", inter.findAll());
+        return "DonarDetailsAll";
+    }
+
+    @PostMapping("/success")
+    public String successPage(@ModelAttribute PersonaDetails details, Model model) {
+        inter.save(details);
+        return "Success";
+    }
+
+    @GetMapping("/finddonars")
+    public String findDonarsPage(@ModelAttribute PersonaDetails details, Model model) {
+        model.addAttribute("details", new PersonaDetails());
+        return "FindDonars";
+    }
+
+    @GetMapping("/healthcheck")
+    @ResponseBody
+    public String healthcheck() {
+        return "OK from Railway";
+    }
 }
+
