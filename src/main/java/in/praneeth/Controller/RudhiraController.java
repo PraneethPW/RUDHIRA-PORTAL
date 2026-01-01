@@ -31,11 +31,11 @@ public class RudhiraController {
 
 
 	
-	@GetMapping("/")
-	public String SaveData(@ModelAttribute PersonaDetails details,Model model) {
-		model.addAttribute("details", new PersonaDetails());
-		return "Landing";
-	}
+//	@GetMapping("/")
+//	public String SaveData(@ModelAttribute PersonaDetails details,Model model) {
+//		model.addAttribute("details", new PersonaDetails());
+//		return "Landing";
+//	}
 	@GetMapping("/saveddata")
 	public String SaveData1(@ModelAttribute PersonaDetails details,Model model) {
 		model.addAttribute("details", new PersonaDetails());
