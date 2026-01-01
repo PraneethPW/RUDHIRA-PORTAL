@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import in.praneeth.Entity.PersonaDetails;
 import in.praneeth.Service.RudhiraServiceInterface;
@@ -22,6 +23,12 @@ public class RudhiraController {
 	static {
 		System.out.println("CONTROLLER PAGE IS READY");
 	}
+	@GetMapping("/healthcheck")
+	@ResponseBody
+	public String healthcheck() {
+	    return "OK from Railway";
+	}
+
 	
 	@GetMapping("/")
 	public String SaveData(@ModelAttribute PersonaDetails details,Model model) {
