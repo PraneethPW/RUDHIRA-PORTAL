@@ -23,11 +23,12 @@ public class RudhiraController {
 	static {
 		System.out.println("CONTROLLER PAGE IS READY");
 	}
-	@GetMapping("/healthcheck")
+	@GetMapping("/")
 	@ResponseBody
-	public String healthcheck() {
-	    return "OK from Railway";
+	public String rootTest() {
+	    return "Root handler hit";
 	}
+
 
 	
 	@GetMapping("/")
